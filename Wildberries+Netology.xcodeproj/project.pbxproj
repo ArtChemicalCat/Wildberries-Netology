@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		24C7E9442846709500C99D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E9432846709500C99D06 /* AppDelegate.swift */; };
 		24C7E9462846709500C99D06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E9452846709500C99D06 /* SceneDelegate.swift */; };
-		24C7E9482846709500C99D06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E9472846709500C99D06 /* ViewController.swift */; };
-		24C7E94B2846709500C99D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C7E9492846709500C99D06 /* Main.storyboard */; };
 		24C7E94D2846709600C99D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C7E94C2846709600C99D06 /* Assets.xcassets */; };
 		24C7E9502846709600C99D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C7E94E2846709600C99D06 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		24C7E9402846709500C99D06 /* Wildberries+Netology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildberries+Netology.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C7E9432846709500C99D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C7E9452846709500C99D06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		24C7E9472846709500C99D06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24C7E94A2846709500C99D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C7E94C2846709600C99D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C7E94F2846709600C99D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24C7E9512846709600C99D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,53 @@
 		24C7E9422846709500C99D06 /* Wildberries+Netology */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E957284675A400C99D06 /* Core */,
+				24C7E958284675B800C99D06 /* ActualFlights */,
+				24C7E959284675D000C99D06 /* FlightDetails */,
 				24C7E9432846709500C99D06 /* AppDelegate.swift */,
 				24C7E9452846709500C99D06 /* SceneDelegate.swift */,
-				24C7E9472846709500C99D06 /* ViewController.swift */,
-				24C7E9492846709500C99D06 /* Main.storyboard */,
 				24C7E94C2846709600C99D06 /* Assets.xcassets */,
 				24C7E94E2846709600C99D06 /* LaunchScreen.storyboard */,
 				24C7E9512846709600C99D06 /* Info.plist */,
 			);
 			path = "Wildberries+Netology";
+			sourceTree = "<group>";
+		};
+		24C7E957284675A400C99D06 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				24C7E95B2846761A00C99D06 /* data */,
+				24C7E95A284675EA00C99D06 /* model */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		24C7E958284675B800C99D06 /* ActualFlights */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ActualFlights;
+			sourceTree = "<group>";
+		};
+		24C7E959284675D000C99D06 /* FlightDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FlightDetails;
+			sourceTree = "<group>";
+		};
+		24C7E95A284675EA00C99D06 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		24C7E95B2846761A00C99D06 /* data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +161,6 @@
 			files = (
 				24C7E9502846709600C99D06 /* LaunchScreen.storyboard in Resources */,
 				24C7E94D2846709600C99D06 /* Assets.xcassets in Resources */,
-				24C7E94B2846709500C99D06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +171,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C7E9482846709500C99D06 /* ViewController.swift in Sources */,
 				24C7E9442846709500C99D06 /* AppDelegate.swift in Sources */,
 				24C7E9462846709500C99D06 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		24C7E9492846709500C99D06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24C7E94A2846709500C99D06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		24C7E94E2846709600C99D06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +316,9 @@
 				INFOPLIST_FILE = "Wildberries+Netology/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +344,9 @@
 				INFOPLIST_FILE = "Wildberries+Netology/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
