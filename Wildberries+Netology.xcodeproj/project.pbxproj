@@ -11,6 +11,9 @@
 		24C7E9462846709500C99D06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E9452846709500C99D06 /* SceneDelegate.swift */; };
 		24C7E94D2846709600C99D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C7E94C2846709600C99D06 /* Assets.xcassets */; };
 		24C7E9502846709600C99D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C7E94E2846709600C99D06 /* LaunchScreen.storyboard */; };
+		24C7E95D2846779500C99D06 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E95C2846779500C99D06 /* Flight.swift */; };
+		24C7E95F28467AEB00C99D06 /* ActualFlightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */; };
+		24C7E96128467D8300C99D06 /* FlightsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E96028467D8300C99D06 /* FlightsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		24C7E94C2846709600C99D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C7E94F2846709600C99D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24C7E9512846709600C99D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C7E95C2846779500C99D06 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualFlightsViewModel.swift; sourceTree = "<group>"; };
+		24C7E96028467D8300C99D06 /* FlightsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		24C7E958284675B800C99D06 /* ActualFlights */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */,
 			);
 			path = ActualFlights;
 			sourceTree = "<group>";
@@ -90,6 +97,7 @@
 		24C7E95A284675EA00C99D06 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E95C2846779500C99D06 /* Flight.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 		24C7E95B2846761A00C99D06 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E96028467D8300C99D06 /* FlightsRepository.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -171,7 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C7E95D2846779500C99D06 /* Flight.swift in Sources */,
 				24C7E9442846709500C99D06 /* AppDelegate.swift in Sources */,
+				24C7E95F28467AEB00C99D06 /* ActualFlightsViewModel.swift in Sources */,
+				24C7E96128467D8300C99D06 /* FlightsRepository.swift in Sources */,
 				24C7E9462846709500C99D06 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
