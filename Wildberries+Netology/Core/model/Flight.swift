@@ -13,5 +13,8 @@ struct Flight {
     let startDate: Date
     let endDate: Date
     let price: Int
+    let searchToken: String
     var isLiked: Bool
 }
+
+extension Flight: Equatable {}

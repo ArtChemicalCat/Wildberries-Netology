@@ -14,25 +14,28 @@ enum ActualFlightsView {
 }
 
 final class ActualFlightsViewModel {
-    //MARK: - Published properties
-    @Published var view: ActualFlightsView = .loadingFlights
+    //MARK: - Properties
+    @Published var flights = Array<Flight>()
+    @Published var isLoading = false
+    @Published var errorMessage: String?
     
     private let flightsRepository: FlightsRepository
     
+    //MARK: - Initialiser
     init(flightsRepository: FlightsRepository) {
         self.flightsRepository = flightsRepository
     }
     
     func loadFlightsList() {
-        view = .loadingFlights
+        isLoading = true
         Task {
             do {
-                let flights = try await flightsRepository.fetchFlightsList()
-                view = .showingFlights(flights)
+                flights = try await flightsRepository.fetchFlightsList()
+                isLoading = false
             } catch {
-                view = .presentingErrorMessage(error)
+                errorMessage = error.localizedDescription
+                isLoading = false
             }
-            
         }
     }
 }

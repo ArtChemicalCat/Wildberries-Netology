@@ -14,6 +14,12 @@
 		24C7E95D2846779500C99D06 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E95C2846779500C99D06 /* Flight.swift */; };
 		24C7E95F28467AEB00C99D06 /* ActualFlightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */; };
 		24C7E96128467D8300C99D06 /* FlightsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E96028467D8300C99D06 /* FlightsRepository.swift */; };
+		24C7E963284680A300C99D06 /* ActualFlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E962284680A300C99D06 /* ActualFlightsViewController.swift */; };
+		24C7E9682846867700C99D06 /* FakeFlightsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E9672846867700C99D06 /* FakeFlightsRepository.swift */; };
+		24C7E96A284689A000C99D06 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E969284689A000C99D06 /* DIContainer.swift */; };
+		24C7E96C28468B8E00C99D06 /* ActualFlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E96B28468B8E00C99D06 /* ActualFlightCell.swift */; };
+		24C7E96F28478ED400C99D06 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E96E28478ED400C99D06 /* DateFormatter+Extension.swift */; };
+		24C7E972284A6DDD00C99D06 /* ActualFlightRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7E971284A6DDD00C99D06 /* ActualFlightRootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		24C7E95C2846779500C99D06 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualFlightsViewModel.swift; sourceTree = "<group>"; };
 		24C7E96028467D8300C99D06 /* FlightsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsRepository.swift; sourceTree = "<group>"; };
+		24C7E962284680A300C99D06 /* ActualFlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualFlightsViewController.swift; sourceTree = "<group>"; };
+		24C7E9672846867700C99D06 /* FakeFlightsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeFlightsRepository.swift; sourceTree = "<group>"; };
+		24C7E969284689A000C99D06 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		24C7E96B28468B8E00C99D06 /* ActualFlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualFlightCell.swift; sourceTree = "<group>"; };
+		24C7E96E28478ED400C99D06 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		24C7E971284A6DDD00C99D06 /* ActualFlightRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualFlightRootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 				24C7E958284675B800C99D06 /* ActualFlights */,
 				24C7E959284675D000C99D06 /* FlightDetails */,
 				24C7E9432846709500C99D06 /* AppDelegate.swift */,
+				24C7E969284689A000C99D06 /* DIContainer.swift */,
 				24C7E9452846709500C99D06 /* SceneDelegate.swift */,
 				24C7E94C2846709600C99D06 /* Assets.xcassets */,
 				24C7E94E2846709600C99D06 /* LaunchScreen.storyboard */,
@@ -73,6 +86,7 @@
 		24C7E957284675A400C99D06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E96D28478E4000C99D06 /* utility */,
 				24C7E95B2846761A00C99D06 /* data */,
 				24C7E95A284675EA00C99D06 /* model */,
 			);
@@ -82,7 +96,9 @@
 		24C7E958284675B800C99D06 /* ActualFlights */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E970284A6DA300C99D06 /* views */,
 				24C7E95E28467AEB00C99D06 /* ActualFlightsViewModel.swift */,
+				24C7E962284680A300C99D06 /* ActualFlightsViewController.swift */,
 			);
 			path = ActualFlights;
 			sourceTree = "<group>";
@@ -105,9 +121,35 @@
 		24C7E95B2846761A00C99D06 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				24C7E9662846865B00C99D06 /* FakeFlightsRepository */,
 				24C7E96028467D8300C99D06 /* FlightsRepository.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		24C7E9662846865B00C99D06 /* FakeFlightsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				24C7E9672846867700C99D06 /* FakeFlightsRepository.swift */,
+			);
+			path = FakeFlightsRepository;
+			sourceTree = "<group>";
+		};
+		24C7E96D28478E4000C99D06 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				24C7E96E28478ED400C99D06 /* DateFormatter+Extension.swift */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
+		24C7E970284A6DA300C99D06 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				24C7E96B28468B8E00C99D06 /* ActualFlightCell.swift */,
+				24C7E971284A6DDD00C99D06 /* ActualFlightRootView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +222,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C7E9682846867700C99D06 /* FakeFlightsRepository.swift in Sources */,
 				24C7E95D2846779500C99D06 /* Flight.swift in Sources */,
 				24C7E9442846709500C99D06 /* AppDelegate.swift in Sources */,
+				24C7E963284680A300C99D06 /* ActualFlightsViewController.swift in Sources */,
+				24C7E96A284689A000C99D06 /* DIContainer.swift in Sources */,
+				24C7E972284A6DDD00C99D06 /* ActualFlightRootView.swift in Sources */,
+				24C7E96C28468B8E00C99D06 /* ActualFlightCell.swift in Sources */,
 				24C7E95F28467AEB00C99D06 /* ActualFlightsViewModel.swift in Sources */,
 				24C7E96128467D8300C99D06 /* FlightsRepository.swift in Sources */,
+				24C7E96F28478ED400C99D06 /* DateFormatter+Extension.swift in Sources */,
 				24C7E9462846709500C99D06 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
