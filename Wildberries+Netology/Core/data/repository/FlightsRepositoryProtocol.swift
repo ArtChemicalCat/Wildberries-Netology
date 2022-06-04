@@ -1,5 +1,5 @@
 //
-//  FlightsRepository.swift
+//  FlightsRepositoryProtocol.swift
 //  Wildberries+Netology
 //
 //  Created by Николай Казанин on 31.05.2022.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol FlightsRepository {
+protocol FlightsRepositoryProtocol {
     func fetchFlightsList() async throws -> [Flight]
 }

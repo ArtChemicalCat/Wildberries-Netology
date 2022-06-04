@@ -9,16 +9,18 @@ import UIKit
 import Combine
 
 final class ActualFlightsViewController: UIViewController {
-    //MARK: - ViewModel
+    //MARK: - Properties
     var viewModel: ActualFlightsViewModel!
+    private var rootView: ActualFlightRootView {
+        view as! ActualFlightRootView
+    }
     
-    //MARK: - PrivateProperties
     private var subscriptions = Array<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Актуальные авиаперелеты"
         observeErrors()
-        view.backgroundColor = .systemBackground
         viewModel.loadFlightsList()
     }
     
@@ -34,9 +36,10 @@ final class ActualFlightsViewController: UIViewController {
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] errorMessage in
-                viewModel.isLoading = false
                 guard let errorMessage = errorMessage else { return }
                 presentError(errorMessage: errorMessage)
+                viewModel.isLoading = false
+                rootView.toggleInternetConnectionImageAppearance()
             }
             .store(in: &subscriptions)
     }

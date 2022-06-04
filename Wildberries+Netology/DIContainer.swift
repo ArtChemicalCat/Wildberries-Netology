@@ -9,7 +9,7 @@ import Foundation
 
 final class DIContainer {
     func makeActualFlightsViewController() -> ActualFlightsViewController {
-        let viewModel = ActualFlightsViewModel(flightsRepository: FakeFlightsRepository())
+        let viewModel = ActualFlightsViewModel(flightsRepository: FlightsRemoteRepository())
         let vc = ActualFlightsViewController()
         vc.viewModel = viewModel
         

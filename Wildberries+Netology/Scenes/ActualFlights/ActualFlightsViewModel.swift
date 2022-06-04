@@ -19,10 +19,10 @@ final class ActualFlightsViewModel {
     @Published var isLoading = false
     @Published var errorMessage: String?
     
-    private let flightsRepository: FlightsRepository
+    private let flightsRepository: FlightsRepositoryProtocol
     
     //MARK: - Initialiser
-    init(flightsRepository: FlightsRepository) {
+    init(flightsRepository: FlightsRepositoryProtocol) {
         self.flightsRepository = flightsRepository
     }
     

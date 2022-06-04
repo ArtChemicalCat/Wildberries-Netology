@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FakeFlightsRepository: FlightsRepository {
+final class FakeFlightsRepository: FlightsRepositoryProtocol {
     func fetchFlightsList() async throws -> [Flight] {
         sleep(2)
         let flights: [Flight] = [

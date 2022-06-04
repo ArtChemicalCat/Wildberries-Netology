@@ -18,18 +18,20 @@ final class ActualFlightCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let view = UILabel()
         view.font = .preferredFont(forTextStyle: .footnote)
-        
+        view.textColor = .systemGray
         return view
     }()
         
     private let priceLabel: UILabel = {
         let view = UILabel()
-        
+        view.font = .preferredFont(forTextStyle: .callout)
+        view.textColor = Color.magenta
         return view
     }()
     
     lazy var likeIcon: UIImageView = {
         let view = UIImageView()
+        view.tintColor = Color.purplish
         view.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(likeFlight))
         view.addGestureRecognizer(tap)
@@ -46,7 +48,7 @@ final class ActualFlightCell: UITableViewCell {
         didSet {
             guard let flight = flight else { return }
             
-            cityLabel.text = "\(flight.startCity) - \(flight.endCity)"
+            cityLabel.text = "\(flight.startCity) → \(flight.endCity)"
             dateLabel.text = "\(flight.startDate.toString()) - \(flight.endDate.toString())"
             likeIcon.image = flight.isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
             priceLabel.text = "\(flight.price) руб"
@@ -65,11 +67,16 @@ final class ActualFlightCell: UITableViewCell {
     }
     
     //MARK: - Metods
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12))
+    }
+    
     private func configureCell() {
         contentView.layer.cornerRadius = 8
-        contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.systemGray3.cgColor
         selectionStyle = .none
+        contentView.backgroundColor = .white
+        backgroundColor = .clear
         
         [cityLabel, dateLabel, priceLabel, likeIcon].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -77,18 +84,18 @@ final class ActualFlightCell: UITableViewCell {
         }
         
         NSLayoutConstraint.activate([
-            cityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            cityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            cityLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            cityLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             
             dateLabel.leadingAnchor.constraint(equalTo: cityLabel.leadingAnchor),
-            dateLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 8),
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            dateLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 4),
             
-            likeIcon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            likeIcon.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
             likeIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            priceLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            priceLabel.trailingAnchor.constraint(equalTo: likeIcon.leadingAnchor, constant: -12)
+            priceLabel.leadingAnchor.constraint(equalTo: cityLabel.leadingAnchor),
+            priceLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            priceLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
         ])
     }
     

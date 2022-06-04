@@ -13,14 +13,26 @@ final class ActualFlightRootView: UIView {
     private lazy var actualFlightsList: UITableView = {
         let view = UITableView()
         view.dataSource = self
+        view.delegate = self
         view.register(ActualFlightCell.self, forCellReuseIdentifier: ActualFlightCell.id)
         view.rowHeight = UITableView.automaticDimension
+        view.separatorStyle = .none
+        view.backgroundColor = .clear
         return view
     }()
     
     private let loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.hidesWhenStopped = true
+        return view
+    }()
+    
+    private let internetConnectionLostImage: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(systemName: "wifi.slash")
+        view.contentMode = .scaleAspectFill
+        view.tintColor = Color.gray4
+        view.isHidden = true
         return view
     }()
 
@@ -45,7 +57,11 @@ final class ActualFlightRootView: UIView {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] loading in
-                loadingIndicator.startAnimating()
+                if loading {
+                    loadingIndicator.startAnimating()
+                } else {
+                    loadingIndicator.stopAnimating()
+                }
             }
             .store(in: &subscriptions)
         
@@ -53,28 +69,34 @@ final class ActualFlightRootView: UIView {
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] flights in
-                loadingIndicator.stopAnimating()
                 actualFlightsList.reloadData()
             }
             .store(in: &subscriptions)
     }
     
+    func toggleInternetConnectionImageAppearance() {
+        internetConnectionLostImage.isHidden.toggle()
+    }
+    
     private func layout() {
-        backgroundColor = .systemBackground
-        [loadingIndicator, actualFlightsList].forEach {
+        backgroundColor = Color.gray1
+        [internetConnectionLostImage, actualFlightsList, loadingIndicator].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
-        backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
+            internetConnectionLostImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            internetConnectionLostImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            internetConnectionLostImage.widthAnchor.constraint(equalToConstant: 150),
+            
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             actualFlightsList.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            actualFlightsList.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
-            actualFlightsList.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
-            actualFlightsList.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            actualFlightsList.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            actualFlightsList.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            actualFlightsList.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
@@ -95,4 +117,8 @@ extension ActualFlightRootView: UITableViewDataSource {
         }
         return cell
     }
+}
+
+extension ActualFlightRootView: UITableViewDelegate {
+    
 }
