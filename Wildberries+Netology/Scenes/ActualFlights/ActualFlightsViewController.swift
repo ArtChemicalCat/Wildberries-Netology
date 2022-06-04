@@ -11,12 +11,13 @@ import Combine
 final class ActualFlightsViewController: UIViewController {
     //MARK: - Properties
     var viewModel: ActualFlightsViewModel!
-    private var rootView: ActualFlightRootView {
-        view as! ActualFlightRootView
-    }
+    var makeFlightDetailVC: ((FlightDetailViewModel) -> FlightDetailViewController)!
     
     private var subscriptions = Array<AnyCancellable>()
+
+    private var rootView: ActualFlightRootView { view as! ActualFlightRootView }
     
+    //MARK: - LifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Актуальные авиаперелеты"
@@ -27,10 +28,12 @@ final class ActualFlightsViewController: UIViewController {
     override func loadView() {
         let rootView = ActualFlightRootView(frame: .zero)
         rootView.viewModel = viewModel
+        rootView.viewInteractionResponder = self
         rootView.bind(to: viewModel)
         view = rootView
     }
     
+    //MARK: - Metods
     private func observeErrors() {
         viewModel.$errorMessage
             .removeDuplicates()
@@ -50,5 +53,19 @@ final class ActualFlightsViewController: UIViewController {
         alert.addAction(action)
         
         present(alert, animated: true)
+    }
+}
+
+//MARK: - ActualFlightViewInteractionResponder
+extension ActualFlightsViewController: ActualFlightViewInteractionResponder {
+    func didSelectFlight(_ flight: Flight) {
+        let flightDetailViewModel = FlightDetailViewModel(flight: flight) { [weak self] in
+            guard let self = self else { return }
+            guard let index = self.viewModel.flights.firstIndex(of: flight) else { return }
+            self.viewModel.flights[index].isLiked.toggle()
+        }
+        let flightDetailVC = makeFlightDetailVC(flightDetailViewModel)
+        
+        navigationController?.pushViewController(flightDetailVC, animated: true)
     }
 }

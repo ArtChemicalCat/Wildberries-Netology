@@ -10,9 +10,9 @@ import UIKit
 
 struct Color {
     /// Brand Colors
-    static let magenta = UIColor(red: 203/255, green: 17/255, blue: 171/255, alpha: 1)
-    static let purplish = UIColor(red: 153/255, green: 0, blue: 153/255, alpha: 1)
-    static let darkViolet = UIColor(red: 72/255, green: 17/255, blue: 115/255, alpha: 1)
+    static let magenta = UIColor(red: 203, green: 17, blue: 171)
+    static let purplish = UIColor(red: 153, green: 0, blue: 153)
+    static let darkViolet = UIColor(red: 72, green: 17, blue: 115)
     /// Gray Colors
     static let gray0 = UIColor(0xF6F6F6)
     static let gray1 = UIColor(0xF2F2F2)
@@ -31,7 +31,7 @@ extension UIColor {
     public convenience init(_ hex: Int) {
         assert(
             0...0xFFFFFF ~= hex,
-            "UIColor+Hex: Hex value given to UIColor initializer should only include RGB values, i.e. the hex value should have six digits." //swiftlint:disable:this line_length
+            "UIColor+Hex: Hex value given to UIColor initialiser should only include RGB values, i.e. the hex value should have six digits." //swiftlint:disable:this line_length
         )
         let red = (hex & 0xFF0000) >> 16
         let green = (hex & 0x00FF00) >> 8

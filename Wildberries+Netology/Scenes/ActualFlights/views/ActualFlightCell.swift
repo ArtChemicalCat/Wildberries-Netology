@@ -51,7 +51,7 @@ final class ActualFlightCell: UITableViewCell {
             cityLabel.text = "\(flight.startCity) → \(flight.endCity)"
             dateLabel.text = "\(flight.startDate.toString()) - \(flight.endDate.toString())"
             likeIcon.image = flight.isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-            priceLabel.text = "\(flight.price) руб"
+            priceLabel.text = "\(flight.price) ₽"
         }
     }
     

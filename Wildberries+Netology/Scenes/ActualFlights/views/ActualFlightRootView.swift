@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol ActualFlightViewInteractionResponder: AnyObject {
+    func didSelectFlight(_ flight: Flight)
+}
+
 final class ActualFlightRootView: UIView {
     //MARK: - Views
     private lazy var actualFlightsList: UITableView = {
@@ -36,10 +40,10 @@ final class ActualFlightRootView: UIView {
         return view
     }()
 
-    //MARK: - ViewModel
+    //MARK: - Properties
     var viewModel: ActualFlightsViewModel!
+    weak var viewInteractionResponder: ActualFlightViewInteractionResponder?
     
-    //MARK: - PrivateProperties
     private var subscriptions = Array<AnyCancellable>()
     
     //MARK: - Initialisers
@@ -119,6 +123,9 @@ extension ActualFlightRootView: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension ActualFlightRootView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewInteractionResponder?.didSelectFlight(viewModel.flights[indexPath.row])
+    }
 }

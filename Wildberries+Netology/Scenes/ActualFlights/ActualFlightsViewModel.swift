@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum ActualFlightsView {
-    case loadingFlights
-    case showingFlights([Flight])
-    case presentingErrorMessage(Error)
-}
-
 final class ActualFlightsViewModel {
     //MARK: - Properties
     @Published var flights = Array<Flight>()
@@ -26,6 +20,7 @@ final class ActualFlightsViewModel {
         self.flightsRepository = flightsRepository
     }
     
+    //MARK: - Metods
     func loadFlightsList() {
         isLoading = true
         Task {
