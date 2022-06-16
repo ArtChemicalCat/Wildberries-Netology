@@ -8,7 +8,16 @@
 import UIKit
 
 final class FlightDetailViewController: UIViewController {
-    var viewModel: FlightDetailViewModel!
+    private let viewModel: FlightDetailViewModel
+    
+    init(viewModel: FlightDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         let rootView = FlightDetailRootView(frame: .zero)

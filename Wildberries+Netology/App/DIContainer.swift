@@ -12,17 +12,13 @@ final class DIContainer {
     
     func makeActualFlightsViewController() -> ActualFlightsViewController {
         let viewModel = ActualFlightsViewModel(flightsRepository: flightRemoteRepository)
-        let vc = ActualFlightsViewController()
+        let vc = ActualFlightsViewController(viewModel: viewModel)
         vc.makeFlightDetailVC = makeFlightDetailViewController(_:)
-        vc.viewModel = viewModel
         
         return vc
     }
     
     func makeFlightDetailViewController(_ viewModel: FlightDetailViewModel) -> FlightDetailViewController {
-        let vc = FlightDetailViewController()
-        vc.viewModel = viewModel
-        
-        return vc
+        FlightDetailViewController(viewModel: viewModel)
     }
 }
