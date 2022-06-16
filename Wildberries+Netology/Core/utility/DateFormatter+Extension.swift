@@ -18,7 +18,6 @@ extension Date {
     static let isoFormatter = ISO8601DateFormatter()
     
     func toString() -> String {
-        
         return Self.formatter.string(from: self)
     }
     

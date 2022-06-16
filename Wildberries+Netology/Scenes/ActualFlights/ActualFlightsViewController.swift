@@ -38,7 +38,6 @@ final class ActualFlightsViewController: UIViewController {
         let rootView = ActualFlightRootView(frame: .zero)
         rootView.viewModel = viewModel
         rootView.viewInteractionResponder = self
-        rootView.bind(to: viewModel)
         view = rootView
     }
     

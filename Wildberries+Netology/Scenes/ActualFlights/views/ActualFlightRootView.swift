@@ -56,8 +56,13 @@ final class ActualFlightRootView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - LifeCycle
+    override func didMoveToWindow() {
+        bind(to: viewModel)
+    }
+    
     //MARK: - Metods
-    func bind(to viewModel: ActualFlightsViewModel) {
+    private func bind(to viewModel: ActualFlightsViewModel) {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] loading in
